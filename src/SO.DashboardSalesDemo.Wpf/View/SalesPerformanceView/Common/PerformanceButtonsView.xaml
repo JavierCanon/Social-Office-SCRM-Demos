@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.Common.PerformanceButtonsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="76" d:DesignWidth="813" Padding="0,0,1,1"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:PerformanceAreaChartViewModel}"
+             x:Name="this">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/SO.DashboardSalesDemo.Wpf;component/Themes/Common.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button Command="{Binding Path=TimeBackwardCommand}" Content="ArrowLeft.png" Style="{StaticResource GlyphButtonStyle}" Width="50"/>
+        <Button Command="{Binding Path=SetLastTimePeriodCommand}" Grid.Column="1" Margin="5,0,0,0" Visibility="{Binding ElementName=this, Path=LastTimePeriodButtonVisibility}">
+            <Button.Content>
+                <Binding Path="Mode">
+                    <Binding.Converter>
+                        <dxmvvm:ObjectToObjectConverter>
+                            <dxmvvm:MapItem Source="Daily" Target="Yesterday"/>
+                            <dxmvvm:MapItem Source="Monthly" Target="Last Month"/>
+                        </dxmvvm:ObjectToObjectConverter>
+                    </Binding.Converter>
+                </Binding>
+            </Button.Content>
+        </Button>
+        <Button Command="{Binding Path=SetCurrentTimePeriodCommand}" Grid.Column="2" Margin="5,0,0,0" Visibility="{Binding ElementName=this, Path=CurrentTimePeriodButtonVisibility}">
+            <Button.Content>
+                <Binding Path="Mode">
+                    <Binding.Converter>
+                        <dxmvvm:ObjectToObjectConverter>
+                            <dxmvvm:MapItem Source="Daily" Target="Today"/>
+                            <dxmvvm:MapItem Source="Monthly" Target="This Month"/>
+                        </dxmvvm:ObjectToObjectConverter>
+                    </Binding.Converter>
+                </Binding>
+            </Button.Content>
+        </Button>
+        <Button Command="{Binding Path=TimeForwardCommand}" Content="ArrowRight.png" Grid.Column="3" Style="{StaticResource GlyphButtonStyle}" Width="50" Margin="5,0,0,0"/>
+    </Grid>
+</UserControl>

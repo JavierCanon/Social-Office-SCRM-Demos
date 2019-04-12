@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.PieBarRangeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:View="clr-namespace:SO.DashboardSalesDemo.Wpf.View.Common"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="350" d:DesignWidth="1000"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:PieBarRangeViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="84" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="48" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <View:PieView DataContext="{Binding BarViewModel}"/>
+        <View:BarView  Grid.Column="2" Margin="6,40,0,40" DataContext="{Binding PieViewModel}"/>
+        <View:RangeView Grid.ColumnSpan="3" Grid.Row="1" Margin="32,0,0,0" DataContext="{Binding RangeViewModel}"/>
+    </Grid>
+</UserControl>

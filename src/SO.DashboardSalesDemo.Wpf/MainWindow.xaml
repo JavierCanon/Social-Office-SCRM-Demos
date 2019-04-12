@@ -1,0 +1,26 @@
+﻿<dx:ThemedWindow
+    x:Class="SO.DashboardSalesDemo.Wpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:View="clr-namespace:SO.DashboardSalesDemo.Wpf.View"
+    xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+    Title="{Binding MainWindowTitle, Source={StaticResource ApplicationSettings}}"
+    Height="{Binding MainWindowHeight, Source={StaticResource ApplicationSettings}}"
+    Width="{Binding MainWindowWidth, Source={StaticResource ApplicationSettings}}"
+    MinWidth="{Binding MainWindowMinWidth, Source={StaticResource ApplicationSettings}}"
+    MinHeight="{Binding MainWindowMinHeight, Source={StaticResource ApplicationSettings}}"
+    Icon="{Binding MainWindowIcon, Source={StaticResource ApplicationSettings}}"
+    WindowState="{Binding MainWindowState, Source={StaticResource ApplicationSettings}}"
+    UseLayoutRounding="True"
+    SnapsToDevicePixels="True"
+    WindowStartupLocation="CenterScreen"
+    TitleAlignment="Center">
+    <dx:ThemedWindow.DataContext>
+        <dxmvvm:ViewModelSourceExtension Type="{x:Type ViewModel:MainViewModel}"/>
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <View:MainView/>
+    </Grid>
+</dx:ThemedWindow>

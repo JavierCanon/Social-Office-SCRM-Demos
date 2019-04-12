@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.Common.NavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="250"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:NavigationViewModel}">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="navigationTileNormalBackground">
+            <GradientStop Color="#FF469EA5"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="navigationTileMouseOverBackground">
+            <GradientStop Color="#FF4668A5"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="navigationTileSelectedBackground">
+            <GradientStop Color="#FF4668A5"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    <Grid>
+        <dxlc:TileLayoutControl dxmvvm:UIRegion.Region="{x:Static ViewModel:Regions.Navigation}" Padding="0" AllowItemMoving="False" AllowLayerSizing="False" StretchContent="True" ItemSpace="10" Orientation="Horizontal">
+            <dxlc:TileLayoutControl.ItemContainerStyle>
+                <Style TargetType="dxlc:Tile">
+                    <Setter Property="Width" Value="130"/>
+                    <Setter Property="Height" Value="130"/>
+                    <Setter Property="Command" Value="{Binding ActivateCommand}"/>
+                    <Setter Property="Background" Value="{StaticResource navigationTileNormalBackground}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource navigationTileMouseOverBackground}"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsActive, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                            <Setter Property="Background" Value="{StaticResource navigationTileSelectedBackground}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </dxlc:TileLayoutControl.ItemContainerStyle>
+        </dxlc:TileLayoutControl>
+    </Grid>
+</UserControl>

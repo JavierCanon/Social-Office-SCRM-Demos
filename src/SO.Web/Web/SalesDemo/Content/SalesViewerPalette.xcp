@@ -1,0 +1,8 @@
+<Palette Name="SalesViewerPalette">
+  <PaletteEntry Color="#DF7C82" Color2="#DF7C82" />
+  <PaletteEntry Color="#DA5859" Color2="#DA5859" />
+  <PaletteEntry Color="#F09777" Color2="#F09777" />
+  <PaletteEntry Color="#FBC987" Color2="#FBC987" />
+  <PaletteEntry Color="#A5D7D0" Color2="#A5D7D0" />
+  <PaletteEntry Color="#A5BDD7" Color2="#A5BDD7" />
+</Palette>

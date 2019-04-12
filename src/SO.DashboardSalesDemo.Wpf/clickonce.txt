@@ -1,0 +1,9 @@
+DevExpress.Charts.v{DXVersion}.Core
+DevExpress.Xpf.Printing.v{DXVersion}
+DevExpress.Xpf.DocumentViewer.v{DXVersion}.Core
+DevExpress.RichEdit.v{DXVersion}.Core
+DevExpress.Office.v{DXVersion}.Core
+DevExpress.Xpf.Charts.v{DXVersion}
+DevExpress.Xpf.Gauges.v{DXVersion}
+SO.SalesDemo.Model
+DevExpress.Xpf.Themes.Office2013.v{DXVersion}

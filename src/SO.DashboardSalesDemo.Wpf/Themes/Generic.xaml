@@ -1,0 +1,80 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:SO.DashboardSalesDemo.Wpf.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SO.DashboardSalesDemo.Wpf;component/Themes/Common.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="Controls:DashboardGroup">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontSize="24" FontWeight="Light" Foreground="#141414" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Controls:DashboardGroup">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Margin="{TemplateBinding HeaderMargin}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ContentControl Grid.Column="0" VerticalAlignment="Center"
+                                            Content="{TemplateBinding Header}"
+                                            ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                            <Rectangle Grid.Column="2" SnapsToDevicePixels="True" Height="3"
+                                       VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                                       Fill="{DynamicResource ResourceKey=separatorBrush}"
+                                       Margin="5,2,0,0" />
+                        </Grid>
+                        <ContentControl Grid.Row="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Controls:VolumeLabelControl">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Controls:VolumeLabelControl">
+                    <Grid>
+                        <ItemsPresenter/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Controls:VolumeLabelItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Controls:VolumeLabelItem">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,40,0">
+                        <Separator Style="{StaticResource VerticalSeparatorStyle}" />
+                        <StackPanel Orientation="Vertical" Margin="7,0,0,0">
+                            <TextBlock Text="{TemplateBinding Header}" Style="{StaticResource ResourceKey=topTextBlockStyle}" />
+                            <TextBlock x:Name="PART_Label" Text="{TemplateBinding Content}" Style="{StaticResource ResourceKey=bottomTextBlockStyle}" />
+                        </StackPanel>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

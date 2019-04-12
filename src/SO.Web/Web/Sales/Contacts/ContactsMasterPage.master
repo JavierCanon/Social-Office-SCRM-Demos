@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Web/SiteMain.Master" AutoEventWireup="true" CodeBehind="ContactsMasterPage.master.cs" Inherits="SO.Web.Sales.Contacts.ContactsMasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentHead" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PageHead"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentHeader" runat="server">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-success d-inline"><i class="fa fa-address-book"></i> Contactos</h2>
+            <a class="nav-link text-success d-inline"
+                id="navbarDropdownMenuLinkAppsContacts" data-toggle="modal" data-target="#navbarDropdownMenuLinkAppsModalContacts" aria-expanded="false">
+                <i class="fa fa-bars top-nav-icon"></i>
+            </a>
+            <asp:ContentPlaceHolder runat="server" ID="PageTitle"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentMain" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PageMain"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentFooter" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PageFooter"></asp:ContentPlaceHolder>
+
+    <%--  Modals --%>
+    <div class="modal fade" id="navbarDropdownMenuLinkAppsModalContacts" tabindex="-1" role="dialog" aria-labelledby="navbarDropdownMenuLinkApps" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Menu Contactos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h6 class="text-success"><i class="fa fa-address-book"></i> Contáctos</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-success text-left" href="ContactsCardView.aspx">&raquo; Buscar</a>
+                                    <a role="button" class="btn btn-sm btn-outline-success text-left" href="ContactsGrid.aspx">&raquo; Editar</a>
+                                    <a role="button" class="btn btn-sm btn-outline-success text-left disabled" href="#" >&raquo; Importar</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-warning"><i class="fa fa-bullhorn"></i> Marketing</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-warning text-left disabled">&raquo; Redes Sociales</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-danger"><i class="fa fa-chart-line"></i> Analítica</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-danger text-left disabled">&raquo; Dashboards</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm">
+                                <h6><i class="fa fa-headset"></i> Servicio</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-dark text-left disabled">&raquo; Tareas</a>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-info"><i class="fa fa-users"></i> Colaboración</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-info text-left disabled">&raquo; Documentos y Archivos</a>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm">
+                                <h6 class="text-secondary"><i class="fa fa-toolbox"></i> Herramientas</h6>
+                                <div class="btn-group-vertical"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</asp:Content>

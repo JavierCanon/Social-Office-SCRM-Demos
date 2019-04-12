@@ -1,0 +1,85 @@
+﻿<dx:ThemedWindow x:Class="SODemo.Views.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                 xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                 xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+                 xmlns:dxwuin="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/navigation"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:SODemo.Views"
+                 xmlns:browser="clr-namespace:SODemo.Views.Browsers"
+                 mc:Ignorable="d"
+                 Title="Social Office SCRM DEMOS" Icon="/SocialOfficeSCRMDemo;component/Resources/Icons/favicon.ico">
+    <dxwui:HamburgerMenu OpenPaneWidth="200"
+                         SelectedItem="{Binding HamburgerMenuSelectedItem, Mode=TwoWay}"
+                         NavigationTarget="{Binding ElementName=service}">
+        
+        <dxwui:HamburgerMenu.Content>
+
+    <!-- 
+            <dxwui:NavigationFrame Source="{x:Type local:Home }">
+                <dxmvvm:Interaction.Behaviors>
+                    <dxwuin:FrameNavigationService x:Name="service"/>
+                </dxmvvm:Interaction.Behaviors>
+                
+            </dxwui:NavigationFrame>
+            -->
+
+            <dxwui:NavigationFrame Source="{x:Type browser:UserControlBrowserIE }">
+                <dxmvvm:Interaction.Behaviors>
+                    <dxwuin:FrameNavigationService x:Name="service"/>
+                </dxmvvm:Interaction.Behaviors>
+
+            </dxwui:NavigationFrame>
+
+        </dxwui:HamburgerMenu.Content>
+
+        <dxwui:HamburgerMenuNavigationButton x:Name="btnMenuContacts" Glyph="/Resources/Icons/logo_contacts_32px.png" Content="Contacts" 
+             Click="BtnContacts_Click" />
+        <dxwui:HamburgerMenuItemSeparator/>
+
+        <dxwui:HamburgerMenuNavigationButton x:Name="btnMenuFacebook" Glyph="/Resources/Icons/facebook_32x32.png" Content="Facebook" 
+               Click="BtnFacebook_Click" />
+        <dxwui:HamburgerMenuItemSeparator/>
+
+        <dxwui:HamburgerMenuNavigationButton x:Name="btnMenuWebDashboard" Glyph="/Resources/Icons/webdashboard_32x32.png" Content="Web Dashboards" 
+               Click="BtnDashboards_Click" IsEnabled="False" />
+        <dxwui:HamburgerMenuItemSeparator/>
+
+        <dxwui:HamburgerMenuNavigationButton x:Name="btnMenuDesktopDashboard" Glyph="/Resources/Icons/desktopdashboard_32x32.png" Content="Desktop Dashboards" 
+               Click="BtnMenuDesktopDashboard_Click" />
+        <dxwui:HamburgerMenuItemSeparator/>
+        
+        <!-- not show in startup browser control (z index) 
+        <dxwui:HamburgerSubMenu Content="Menu" Glyph="/Resources/Icons/Menu.png">
+            <dxwui:HamburgerSubMenu.Items>
+                                
+                <dxwui:HamburgerSubMenuNavigationButton x:Name="btnContacts" Content="Contacts"  
+                                                        Click="BtnContacts_Click" />
+
+                <dxwui:HamburgerSubMenuNavigationButton x:Name="btnFacebook" Content="Facebook" 
+                                                        Click="BtnFacebook_Click" />
+
+                <dxwui:HamburgerSubMenuNavigationButton x:Name="btnDashboards" Content="Dashboards" 
+                                                        Click="BtnDashboards_Click" />
+
+            </dxwui:HamburgerSubMenu.Items>            
+        </dxwui:HamburgerSubMenu>
+       -->
+        
+        <dxwui:HamburgerMenuHyperlinkButton NavigateUri="https://www.facebook.com/groups/social.office.scrm/learning_content/" Content="More information..." Placement="Bottom"/>
+        <dxwui:HamburgerMenuNavigationButton NavigationTargetType="{x:Type local:About}" 
+               Content="About" Placement="Bottom" Glyph="/Resources/Icons/About.png"/>
+        
+        <dxwui:HamburgerMenu.BottomBarItems>
+            
+            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:Settings}" Glyph="/Resources/Icons/Settings.png" Placement="Right"/>
+            <dxwui:HamburgerMenuBottomBarRadioButton GroupName="Radio" Glyph="/Resources/Icons/Radio1.png"/>
+            <dxwui:HamburgerMenuBottomBarRadioButton GroupName="Radio" Glyph="/Resources/Icons/Radio2.png"/>
+            <dxwui:HamburgerMenuBottomBarCheckBox Glyph="/Resources/Icons/Check.png"/>
+            
+        </dxwui:HamburgerMenu.BottomBarItems>
+    </dxwui:HamburgerMenu>
+    
+</dx:ThemedWindow>

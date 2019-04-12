@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.Common.PieView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="444.1" d:DesignWidth="679"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:PieViewModel}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/SO.DashboardSalesDemo.Wpf;component/Themes/Common.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <dxc:ChartControl x:Name="pieChart" BorderBrush="Transparent" Background="Transparent"
+                          Palette="{StaticResource ResourceKey=palette}" Padding="0"
+                          ToolTipEnabled="True" AnimationMode="OnDataChanged">
+            <dxc:ChartControl.Legend>
+                <dxc:Legend Margin="0" Padding="0" HorizontalPosition="RightOutside" VerticalPosition="Center"
+                            BorderThickness="0" Orientation="Vertical" IndentFromDiagram="0">
+                    <dxc:Legend.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,6,0,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Width="18" Height="18" Fill="{Binding Path=MarkerBrush}" />
+                                <TextBlock Grid.Column="2" Text="{Binding Path=Text}" Foreground="{StaticResource ResourceKey=textBrush}" />
+                            </Grid>
+                        </DataTemplate>
+                    </dxc:Legend.ItemTemplate>
+                </dxc:Legend>
+            </dxc:ChartControl.Legend>
+            <dxc:SimpleDiagram2D Background="Transparent" Padding="16">
+                <dxc:PieSeries2D DataSource="{Binding Path=PieDataSource}"
+                                 ArgumentDataMember="{Binding Path=PieArgumentDataMember}"
+                                 ValueDataMember="{Binding Path=PieValueDataMember}"
+                                 LabelsVisibility="True" ToolTipPointPattern="{}{A}:  ${V:#,#}" LegendTextPattern="{}{A}">
+                    <dxc:PieSeries2D.Model>
+                        <dxc:BorderlessFlatPie2DModel />
+                    </dxc:PieSeries2D.Model>
+                    <dxc:PieSeries2D.Label>
+                        <dxc:SeriesLabel ElementTemplate="{StaticResource doughnutSeriesLabelTemplate}" TextPattern="{}{VP:P0}"/>
+                    </dxc:PieSeries2D.Label>
+                </dxc:PieSeries2D>
+            </dxc:SimpleDiagram2D>
+        </dxc:ChartControl>
+    </Grid>
+</UserControl>

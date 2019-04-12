@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.SalesDashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:View="clr-namespace:SO.DashboardSalesDemo.Wpf.View"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:Controls="clr-namespace:SO.DashboardSalesDemo.Wpf.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="911" d:DesignWidth="1203"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:SalesDashboardViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="33" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="48" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Controls:DashboardGroup Margin="0" HeaderMargin="31,0,0,0" Header="DAILY SALES PERFORMANCE">
+            <View:PerformanceAreaChartView AxisXMinorCount="1" AxisXGridSpacing="2" AxisXLabelFormatString="t" AreaSeriesCrosshairLabelPattern="{}{A:t}:  ${V:###,###,###}"
+                                           DateTimeGridAlignment="Hour" DateTimeMeasureUnit="Hour" DateBorderMargin="39,6,0,0" SalesVolumesMargin="33,15,0,17"
+                                           AreaAndSalesVolumesBrush="{StaticResource ResourceKey=blue}" DataContext="{Binding DailySalesPerformanceViewModel}" ButtonsGridMargin="33,11,0,0"/>
+        </Controls:DashboardGroup>
+        <Controls:DashboardGroup Grid.Row="2" HeaderMargin="31,0,0,0" Header="MONTHLY SALES PERFORMANCE">
+            <View:PerformanceAreaChartView AxisXMinorCount="2" AxisXGridSpacing="6" AxisXLabelFormatString="d"
+                                           AreaSeriesCrosshairLabelPattern="{}{A:d}:  ${V:###,###,###}" DateTimeGridAlignment="Day" DateTimeMeasureUnit="Day"
+                                           DateBorderMargin="39,11,0,0" SalesVolumesMargin="33,15,0,17" AreaAndSalesVolumesBrush="{StaticResource ResourceKey=powderBlue}"
+                                           DataContext="{Binding MonthlySalesPerformanceViewModel}" ButtonsGridMargin="33,11,0,0"/>
+        </Controls:DashboardGroup>
+
+        <View:SalesSummaryView DataContext="{Binding SalesSummaryViewModel}" Grid.Column="2" Grid.RowSpan="3"/>
+    </Grid>
+</UserControl>

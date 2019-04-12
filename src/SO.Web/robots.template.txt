@@ -1,0 +1,6 @@
+﻿user-agent: *
+allow:/sites/
+disallow:/web/
+sitemap:
+
+

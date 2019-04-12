@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.SalesSummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Controls="clr-namespace:SO.DashboardSalesDemo.Wpf.Controls"
+             xmlns:View="clr-namespace:SO.DashboardSalesDemo.Wpf.View.Common"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="598" d:DesignWidth="708"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:SalesSummaryViewModel}">
+    <Grid x:Name="gridSalesDashboardLayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="33" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Controls:DashboardGroup Header="SALES BY SECTOR" HeaderMargin="0,0,0,0" Margin="0,0,0,0">
+            <View:SalesBySectorView DataContext="{Binding SalesBySectorViewModel}"/>
+        </Controls:DashboardGroup>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="90" />
+            </Grid.RowDefinitions>
+            <Controls:DashboardGroup Header="ANNUAL SALES PERFORMANCE">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <View:AnnualSalesPerformanceView DataContext="{Binding ThisYearAnnualSalesPerformanceViewModel}"/>
+                    <View:AnnualSalesPerformanceView Grid.Column="2" DataContext="{Binding LastYearAnnualSalesPerformanceViewModel}"/>
+                </Grid>
+            </Controls:DashboardGroup>
+
+            <Controls:DashboardGroup Header="{Binding Path=SalesForecastHeader}" Grid.Row="2">
+                <View:SalesForecastView DataContext="{Binding SalesForecastViewModel}"/>
+            </Controls:DashboardGroup>
+        </Grid>
+    </Grid>
+</UserControl>

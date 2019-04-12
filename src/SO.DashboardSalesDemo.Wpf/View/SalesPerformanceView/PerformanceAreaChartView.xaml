@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.PerformanceAreaChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:View="clr-namespace:SO.DashboardSalesDemo.Wpf.View.Common"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="350" d:DesignWidth="817"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:PerformanceAreaChartViewModel}"
+             x:Name="this">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/SO.DashboardSalesDemo.Wpf;component/Themes/Common.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <View:PerformanceVolumeLabelView DataContext="{Binding}" Grid.Row="0" Margin="{Binding ElementName=this, Path=SalesVolumesMargin}" HorizontalAlignment="Left"
+                                         LabelForeground="{Binding ElementName=this, Path=AreaAndSalesVolumesBrush}"/>
+
+        <dxc:ChartControl Grid.Row="1" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Padding="0" AnimationMode="OnDataChanged" Palette="{StaticResource ResourceKey=palette}">
+            <dxc:ChartControl.CrosshairOptions>
+                <dxc:CrosshairOptions ShowArgumentLine="False" CrosshairLabelMode="ShowForEachSeries" ShowGroupHeaders="False" />
+            </dxc:ChartControl.CrosshairOptions>
+            <dxc:XYDiagram2D Padding="0,0,0,0">
+                <dxc:XYDiagram2D.AxisX>
+                    <dxc:AxisX2D MinorCount="{Binding ElementName=this, Path=AxisXMinorCount}" TickmarksMinorVisible="False" TickmarksVisible="False">
+                        <dxc:AxisX2D.DateTimeOptions>
+                            <dxc:DateTimeOptions Format="Custom" FormatString="{Binding ElementName=this, Path=AxisXLabelFormatString}" />
+                        </dxc:AxisX2D.DateTimeOptions>
+                        <dxc:AxisX2D.Label>
+                            <dxc:AxisLabel FontSize="{StaticResource ResourceKey=chartLabelFontSize}" Foreground="{StaticResource ResourceKey=textBrush}" />
+                        </dxc:AxisX2D.Label>
+                        <dxc:AxisX2D.WholeRange>
+                            <dxc:Range AutoSideMargins="False" />
+                        </dxc:AxisX2D.WholeRange>
+                        <dxc:AxisX2D.DateTimeScaleOptions>
+                            <dxc:ManualDateTimeScaleOptions AutoGrid="False" GridSpacing="{Binding ElementName=this, Path=AxisXGridSpacing}"
+                                                            GridAlignment="{Binding ElementName=this, Path=DateTimeGridAlignment}"
+                                                            MeasureUnit="{Binding ElementName=this, Path=DateTimeMeasureUnit}"/>
+                        </dxc:AxisX2D.DateTimeScaleOptions>
+                    </dxc:AxisX2D>
+                </dxc:XYDiagram2D.AxisX>
+                <dxc:XYDiagram2D.AxisY>
+                    <dxc:AxisY2D GridLinesMinorVisible="True" Interlaced="False" TickmarksMinorVisible="False" TickmarksVisible="False" MinorCount="{Binding ElementName=this, Path=AxisXMinorCount}">
+                        <dxc:AxisY2D.Label>
+                            <dxc:AxisLabel ElementTemplate="{StaticResource axisYLabelTemplate}" />
+                        </dxc:AxisY2D.Label>
+                    </dxc:AxisY2D>
+                </dxc:XYDiagram2D.AxisY>
+                <dxc:AreaSeries2D DataSource="{Binding Path=ChartDataSource}" ArgumentDataMember="{Binding Path=ArgumentDataMember}"
+                                  ValueDataMember="{Binding Path=ValueDataMember}" Brush="{Binding ElementName=this, Path=AreaAndSalesVolumesBrush}" Transparency="0.3"
+                                  CrosshairLabelPattern="{Binding ElementName=this, Path=AreaSeriesCrosshairLabelPattern}">
+                    <dxc:AreaSeries2D.Border>
+                        <dxc:SeriesBorder Brush="Transparent" />
+                    </dxc:AreaSeries2D.Border>
+                </dxc:AreaSeries2D>
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl>
+
+        <View:PerformanceSelectedDateView Margin="{Binding ElementName=this, Path=DateBorderMargin}" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <View:PerformanceButtonsView DataContext="{Binding}" Grid.Row="2" Margin="{Binding ElementName=this, Path=ButtonsGridMargin}" Height="36"/>
+    </Grid>
+</UserControl>

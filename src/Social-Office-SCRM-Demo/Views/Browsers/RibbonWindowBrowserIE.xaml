@@ -1,0 +1,32 @@
+﻿<dx:ThemedWindow x:Class="SODemo.Views.Browsers.RibbonWindowBrowserIE" Title="Browser IE" Height="600" Width="800"
+    WindowStartupLocation="CenterScreen" SizeToContent="Manual" Loaded="ThemedWindow_Loaded" WindowState="Maximized"  
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" ShowStatusPanel="True" Icon="/SocialOfficeSCRMDemo;component/Resources/Icons/favicon.ico">
+    <DockPanel LastChildFill="True">
+        <dxr:RibbonControl x:Name="ribbonControl" DockPanel.Dock="Top" RibbonStyle="Office2010" MenuIconStyle="Office2013">
+            <dxr:RibbonControl.ToolbarItems>
+            </dxr:RibbonControl.ToolbarItems>
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="ribbonPage1">
+                    <dxr:RibbonPageGroup Caption="ribbonPageGroup1">
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+            
+        </dxr:RibbonControl>
+
+        <WebBrowser x:Name="webBrowser" x:FieldModifier="public" DockPanel.Dock="Top" Height="Auto" 
+                    VerticalAlignment="Top" Width="Auto" 
+                    Loaded="WebBrowser_Loaded"
+                    LoadCompleted="WebBrowser_LoadCompleted" />
+
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom">
+            <dxr:RibbonStatusBarControl.RightItems>
+            </dxr:RibbonStatusBarControl.RightItems>
+        </dxr:RibbonStatusBarControl>
+
+    </DockPanel>
+</dx:ThemedWindow>

@@ -1,0 +1,224 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMain.master.cs" Inherits="SO.Web.SiteMain" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Social Office SCRM</title>
+
+    <link href="/Content/fontawesome-5.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-4.2.1/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="ContentHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <%-- top main menu --%>
+            <nav class="navbar navbar-expand-lg navbar-light bg-lightgray">
+                <a class="navbar-brand" href="<%: ResolveUrl("~/Web/Main.aspx") %>">Social Office SCRM</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+
+                        <%-- alerts --%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-secondary"
+                                id="navbarDropdownMenuLinkAlerts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell top-nav-icon"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLinkAlerts">
+                                <h6 class="dropdown-header">Dropdown header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+
+                        <%-- apps and modules --%>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-primary"
+                                id="navbarDropdownMenuLinkApps" data-toggle="modal" data-target="#navbarDropdownMenuLinkAppsModal" aria-expanded="false">
+                                <i class="fa fa-bars top-nav-icon"></i>
+                            </a>
+                        </li>
+
+                        <%-- config settings --%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-secondary"
+                                id="navbarDropdownMenuLinkConfig" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-cog top-nav-icon"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLinkConfig">
+                                <h6 class="dropdown-header">Dropdown header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+
+                        <%-- help --%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-secondary"
+                                id="navbarDropdownMenuLinkHelp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-question-circle top-nav-icon"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLinkHelp">
+                                <h6 class="dropdown-header">Dropdown header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+
+                        <%-- user --%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-info"
+                                id="navbarDropdownMenuLinkUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-cog top-nav-icon"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLinkUser">
+                                <h6 class="dropdown-header">Dropdown header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <header>
+            <div class="container-fluid">
+                <%-- Header Content --%>
+                <asp:ContentPlaceHolder ID="ContentHeader" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <main role="main" class="col-12">
+
+                    <asp:ContentPlaceHolder ID="ContentMain" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </main>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container-fluid">
+                <%-- Header Content --%>
+                <asp:ContentPlaceHolder ID="ContentFooter" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </footer>
+    </form>
+
+    <%--  Modals --%>
+    <div class="modal fade" id="navbarDropdownMenuLinkAppsModal" tabindex="-1" role="dialog" aria-labelledby="navbarDropdownMenuLinkApps"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Modulos y Herramientas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h6 class="text-success"><i class="fa fa-money-bill"></i> Ventas</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-success text-left disabled" href="<%: ResolveUrl("~/Web/Sales/Contacts/Main.aspx") %>">
+                                        &raquo; Contáctos</a>
+                                    <a role="button" class="btn btn-sm btn-outline-success text-left disabled">&raquo; Oportunidades</a>
+                                    <a role="button" class="btn btn-sm btn-outline-success text-left disabled">&raquo; Facturación</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-warning"><i class="fa fa-bullhorn"></i> Marketing</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-warning text-left disabled" onclick="window.external.OpenFacebookForm('main')">
+                                        &raquo;<i class="fab fa-facebook"></i> Facebook</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-danger"><i class="fa fa-chart-line"></i> Analítica</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-danger text-left disabled">&raquo; Dashboards</a>
+                                    <a role="button" class="btn btn-sm btn-outline-danger text-left disabled">&raquo; Consultas</a>
+                                    <a role="button" class="btn btn-sm btn-outline-danger text-left disabled">&raquo; Reportes</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm">
+                                <h6><i class="fa fa-headset"></i> Servicio</h6>
+                                <div class="btn-group-vertical"></div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-info"><i class="fa fa-users"></i> Colaboración</h6>
+                                <div class="btn-group-vertical"></div>
+                            </div>
+
+
+                            <div class="col-sm">
+                                <h6 class="text-secondary"><i class="fa fa-toolbox"></i> Herramientas</h6>
+                                <div class="btn-group-vertical"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="/Scripts/bootstrap-4.2.1/bootstrap.bundle.min.js"></script>
+    <asp:ContentPlaceHolder ID="ContentFooterScripts" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

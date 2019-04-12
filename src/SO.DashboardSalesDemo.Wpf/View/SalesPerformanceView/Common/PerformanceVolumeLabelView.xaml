@@ -1,0 +1,47 @@
+﻿<Controls:VolumeLabelControl x:Class="SO.DashboardSalesDemo.Wpf.View.Common.PerformanceVolumeLabelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:Controls="clr-namespace:SO.DashboardSalesDemo.Wpf.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="96" d:DesignWidth="582"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:PerformanceAreaChartViewModel}">
+    <Controls:VolumeLabelItem Content="{Binding FirstSalesVolume}">
+        <Controls:VolumeLabelItem.Header>
+            <Binding Path="Mode">
+                <Binding.Converter>
+                    <dxmvvm:ObjectToObjectConverter>
+                        <dxmvvm:MapItem Source="Daily" Target="TODAY"/>
+                        <dxmvvm:MapItem Source="Monthly" Target="THIS MONTH"/>
+                    </dxmvvm:ObjectToObjectConverter>
+                </Binding.Converter>
+            </Binding>
+        </Controls:VolumeLabelItem.Header>
+    </Controls:VolumeLabelItem>
+    <Controls:VolumeLabelItem Content="{Binding SecondSalesVolume}">
+        <Controls:VolumeLabelItem.Header>
+            <Binding Path="Mode">
+                <Binding.Converter>
+                    <dxmvvm:ObjectToObjectConverter>
+                        <dxmvvm:MapItem Source="Daily" Target="YESTERDAY"/>
+                        <dxmvvm:MapItem Source="Monthly" Target="LAST MONTH"/>
+                    </dxmvvm:ObjectToObjectConverter>
+                </Binding.Converter>
+            </Binding>
+        </Controls:VolumeLabelItem.Header>
+    </Controls:VolumeLabelItem>
+    <Controls:VolumeLabelItem Content="{Binding ThirdSalesVolume}">
+        <Controls:VolumeLabelItem.Header>
+            <Binding Path="Mode">
+                <Binding.Converter>
+                    <dxmvvm:ObjectToObjectConverter>
+                        <dxmvvm:MapItem Source="Daily" Target="LAST WEEK"/>
+                        <dxmvvm:MapItem Source="Monthly" Target="YTD"/>
+                    </dxmvvm:ObjectToObjectConverter>
+                </Binding.Converter>
+            </Binding>
+        </Controls:VolumeLabelItem.Header>
+    </Controls:VolumeLabelItem>
+</Controls:VolumeLabelControl>

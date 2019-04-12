@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.Common.AnnualSalesPerformanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:AnnualSalesPerformanceViewModel}">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SO.DashboardSalesDemo.Wpf;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="dxga:CircularGaugeControl" x:Key="circularGaugeStyle">
+                <Setter Property="Model">
+                    <Setter.Value>
+                        <dxga:CircularFlatLightModel />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="EnableAnimation" Value="True" />
+            </Style>
+
+            <Style TargetType="dxga:ArcScale" x:Key="arcScaleStyle">
+                <Setter Property="LayoutMode" Value="Circle" />
+                <Setter Property="ShowLabels" Value="True" />
+                <Setter Property="ShowLine" Value="False" />
+                <Setter Property="ShowMajorTickmarks" Value="True" />
+                <Setter Property="ShowMinorTickmarks" Value="False" />
+                <Setter Property="StartAngle" Value="-210" />
+                <Setter Property="EndAngle" Value="30" />
+                <Setter Property="StartValue" Value="0" />
+                <Setter Property="MajorIntervalCount" Value="3" />
+                <Setter Property="LabelOptions">
+                    <Setter.Value>
+                        <dxga:ArcScaleLabelOptions FormatString="{}{0:$0,,M}" Offset="-6" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dxga:CircularGaugeControl Style="{StaticResource ResourceKey=circularGaugeStyle}">
+            <dxga:CircularGaugeControl.Scales>
+                <dxga:ArcScale Style="{StaticResource ResourceKey=arcScaleStyle}" EndValue="{Binding Path=AnnualSalesThirdRangeEnd}">
+                    <dxga:ArcScale.Ranges>
+                        <dxga:ArcScaleRange StartValue="0" EndValue="{Binding Path=AnnualSalesFirstRangeEnd, Converter={StaticResource ResourceKey=decimalToRangeValueConverter}}">
+                            <dxga:ArcScaleRange.Presentation>
+                                <dxga:DefaultArcScaleRangePresentation Fill="{StaticResource ResourceKey=redViolet}" />
+                            </dxga:ArcScaleRange.Presentation>
+                        </dxga:ArcScaleRange>
+                        <dxga:ArcScaleRange StartValue="{Binding Path=AnnualSalesFirstRangeEnd, Converter={StaticResource ResourceKey=decimalToRangeValueConverter}}"
+                                            EndValue="{Binding Path=AnnualSalesSecondRangeEnd, Converter={StaticResource ResourceKey=decimalToRangeValueConverter}}">
+                            <dxga:ArcScaleRange.Presentation>
+                                <dxga:DefaultArcScaleRangePresentation Fill="{StaticResource ResourceKey=yellow}" />
+                            </dxga:ArcScaleRange.Presentation>
+                        </dxga:ArcScaleRange>
+                        <dxga:ArcScaleRange StartValue="{Binding Path=AnnualSalesSecondRangeEnd, Converter={StaticResource ResourceKey=decimalToRangeValueConverter}}"
+                                            EndValue="{Binding Path=AnnualSalesThirdRangeEnd, Converter={StaticResource ResourceKey=decimalToRangeValueConverter}}">
+                            <dxga:ArcScaleRange.Presentation>
+                                <dxga:DefaultArcScaleRangePresentation Fill="{StaticResource ResourceKey=powderBlue}" />
+                            </dxga:ArcScaleRange.Presentation>
+                        </dxga:ArcScaleRange>
+                    </dxga:ArcScale.Ranges>
+                    <dxga:ArcScale.Layers>
+                        <dxga:ArcScaleLayer />
+                    </dxga:ArcScale.Layers>
+                    <dxga:ArcScale.Needles>
+                        <dxga:ArcScaleNeedle Value="{Binding Path=Volume}" />
+                    </dxga:ArcScale.Needles>
+                    <dxga:ArcScale.LabelPresentation>
+                        <dxga:CustomScaleLabelPresentation LabelTemplate="{StaticResource ResourceKey=gaugeLabelTemplate}" />
+                    </dxga:ArcScale.LabelPresentation>
+                </dxga:ArcScale>
+            </dxga:CircularGaugeControl.Scales>
+        </dxga:CircularGaugeControl>
+        <StackPanel Grid.Row="1" Margin="0,-10,0,0">
+            <TextBlock Text="{Binding VolumeHeader}" Style="{StaticResource ResourceKey=topTextBlockStyle}" TextAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Volume, StringFormat='$###,###,###.'}" Foreground="{StaticResource ResourceKey=blue}"
+                       Style="{StaticResource ResourceKey=bottomTextBlockStyle}" TextAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

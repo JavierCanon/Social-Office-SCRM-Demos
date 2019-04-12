@@ -1,0 +1,213 @@
+﻿.thw20 {
+    width: 20px;
+}
+
+#own {
+    color: #fff;
+    margin-top: 20px;
+    display: block
+}
+
+a {
+    color: #222
+}
+
+hr {
+    border-color: #dedede
+}
+
+.main {
+    background-color: #e9eaed;
+    padding-left: 0;
+    padding-right: 0
+}
+
+    .main .img-circle {
+        margin-top: 18px;
+        height: 70px;
+        width: 70px
+    }
+
+tr.link {
+    cursor: pointer
+}
+
+th .fb-icon {
+    background-color: #fff;
+    border-radius: 100%;
+    padding: 2px;
+    border: 1px solid #efefef
+}
+
+#instructions, #lang-container a.selected, #tagline {
+    font-weight: 700
+}
+
+#instructions {
+    margin-top: 25px;
+    color: #333
+}
+
+#header-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-80%);
+    width: 100%
+}
+
+#lang-container {
+    z-index: 99;
+    right: 12px;
+    top: 8px;
+    position: absolute
+}
+
+    #lang-container a {
+        color: #ddd
+    }
+
+a:hover {
+    color: #faffbd
+}
+
+.loading #app {
+    opacity: .2;
+    pointer-events: none
+}
+
+#wrapper {
+    padding: 0 !important
+}
+
+.app #wrapper {
+    padding: 30px
+}
+
+.app header {
+    height: auto
+}
+
+.app #header-content {
+    position: relative;
+    top: 0;
+    transform: translateY(0)
+}
+
+.table-info thead {
+    color: #5195d5;
+    background-color: #f7f7f7
+}
+
+.btn-share, .btn-share:hover .btn-hover {
+    display: inline-block 
+}
+
+.share-container {
+    margin-top: 20px
+}
+
+.btn-share {
+    margin: 7px;
+    opacity: .9
+}
+
+#mobile-content h1, #searchbar-desc {
+    margin-bottom: 20px
+}
+
+.btn-share:hover {
+    opacity: 1
+}
+
+.app #app {
+    display: block 
+}
+
+.target-error {
+    color: #ffc8c8;
+    font-size: 14px;
+    margin-top: 30px
+}
+
+.toggle {
+    width: 70% !important;
+    float: right !important;
+    height: 40px !important;
+    display: none;
+}
+
+thead {
+    background-color: #5195d5;
+    color: #fff
+}
+
+tr:hover .checkmark {
+    display: block
+}
+
+#searchbar {
+    border-radius: 2px;
+    margin: 10px auto auto;
+    left: 0;
+    right: 0;
+    width: 400px;
+    overflow: hidden;
+    color: #eee
+}
+
+input[type=text] {
+    border: 0;
+    height: 30px;
+    width: 350px;
+    padding: 4px 4px 4px 8px;
+    float: left
+}
+
+select {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    height: 40px
+}
+
+.option {
+    background-color: #efefef
+}
+
+#tagline {
+    color: #0f1136;
+    margin-bottom: 40px
+}
+
+td.select {
+    padding: 0 !important
+}
+
+.fb-icon {
+    height: 20px;
+    margin-right: 5px
+}
+
+#searchbar button:hover {
+    background-color: #4080ff;
+    color: #fff
+}
+
+#searchbar button {
+    background-color: #f6f7f9;
+    width: 50px;
+    height: 30px;
+    margin: 0;
+    border: 0;
+    float: left;
+    color: #555
+}
+
+#instructions, #lang-container a.selected, #tagline {
+    font-weight: 700
+}
+
+.option.inuse {
+    background-color: #fff7e9;
+}

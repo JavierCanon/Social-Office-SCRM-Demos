@@ -1,0 +1,218 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 1rem;
+}
+
+.top-right-navbar {
+    padding-right: 20px;
+    width: calc(100% - 230px);
+}
+
+.top-icons-nav {
+    margin-right: 0;
+}
+
+.top-nav-icon {
+    font-size: 2.0rem;
+    cursor: pointer;
+}
+
+.bg-lightgray {
+    background-color: #efefef;
+}
+
+/* grids */
+
+.tdCaption {
+    font-weight: bold;
+    vertical-align: top;
+    text-align: right;
+}
+
+.dxgvSearchPanel_Office365 {
+    width: 600px;
+}
+
+.gridDataRow {
+    background-color: white;
+    color: black;
+}
+
+.gridDataSelectedRow {
+    font-weight: bold;
+    background-color: aquamarine;
+    color: black;
+}
+
+.gridDataRowAlt {
+    background-color: #ffffe8;
+    color: black;
+}
+
+.gridDataHover {
+    font-weight: bold;
+    background-color: #f4b400;
+    color: white;
+}
+
+.detailRow-1Col, .gridEditForm {
+    max-width: 600px !important;
+    min-width: 300px !important;
+}
+
+.gridSearchPanel {
+    max-width: 600px;
+}
+
+/* end grids */
+
+/* social */
+
+.facebook {
+    color: #3B5998 !important;
+}
+
+.twitter {
+    color: #3CF !important;
+}
+
+.google {
+    color: #DC4A38 !important;
+}
+
+.dribbble {
+    color: #F26798 !important;
+}
+
+.skype {
+    color: #00AFF0 !important;
+}
+
+/* end social */
+
+/* Bootstrap callout */
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 4px;
+    margin-left: 50px;
+}
+
+.bs-callout-xl {
+    margin-left: 0px;
+}
+
+.bs-callout-lg {
+    margin-left: 50px;
+}
+
+.bs-callout-md {
+    margin-left: 100px;
+}
+
+.bs-callout-sm {
+    margin-left: 150px;
+}
+
+.bs-callout-xs {
+    margin-left: 200px;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.bs-callout code {
+    border-radius: 4px;
+}
+
+.bs-callout + .bs-callout {
+    margin-top: -5px;
+}
+
+.bs-callout-default {
+    border-left-color: #777;
+    background-color: #f7f7f9;
+}
+
+    .bs-callout-default h4 {
+        color: #777;
+    }
+
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+
+    .bs-callout-primary h4 {
+        color: #428bca;
+    }
+
+.bs-callout-success {
+    border-left-color: #5cb85c;
+    background-color: #efffe8;
+}
+
+    .bs-callout-success h4 {
+        color: #5cb85c;
+    }
+
+.bs-callout-danger {
+    border-left-color: #d9534f;
+    background-color: #fcf2f2;
+}
+
+    .bs-callout-danger h4 {
+        color: #d9534f;
+    }
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+    background-color: #fefbed;
+}
+
+    .bs-callout-warning h4 {
+        color: #f0ad4e;
+    }
+
+.bs-callout-info {
+    border-left-color: #5bc0de;
+    background-color: #f0f7fd;
+}
+
+    .bs-callout-info h4 {
+        color: #5bc0de;
+    }
+
+/* bg transparency and disabled effects for Bootstrap callout */
+.bs-callout-default.transparent {
+    background-color: rgba(247, 247, 249, 0.7); /*#f7f7f9*/
+}
+
+.bs-callout-success.transparent {
+    background-color: rgba(239, 255, 232, 0.7); /*#efffe8*/
+}
+
+.bs-callout-warning.transparent {
+    background-color: rgba(254, 251, 237, 0.7); /*#fefbed*/
+}
+
+.bs-callout-danger.transparent {
+    background-color: rgba(252, 242, 242, 0.7); /*#fcf2f2*/
+}
+
+.bs-callout-info.transparent {
+    background-color: rgba(240, 247, 253, 0.7); /*#f0f7fd*/
+}
+
+.bs-callout.disabled {
+    opacity: 0.4;
+}
+
+/* end Bootstrap callout */

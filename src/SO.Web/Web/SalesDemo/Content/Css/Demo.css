@@ -1,0 +1,689 @@
+﻿/* Main */
+* {
+	font: 14px 'Segoe UI','Helvetica Neue',Helvetica,Verdana,san-serif;
+}
+html, body, form {
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	height: 100%;
+}
+form {
+	position: relative;
+	min-height: 100%;
+	background-color: #F5F5F5;
+	min-width: 1324px;
+}
+h1, h3, h5 {
+	font-weight: 400;
+}
+h1, h3 {
+	font-size: 20px;
+	line-height: 32px;
+	color: #252525;
+	margin-top: 0;
+}
+h5 {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+.createDbMessage {
+	margin: 20px 0 10px;
+}
+.verticalAlignMiddle {
+	vertical-align: middle !important;
+	display: inline-block !important;
+}
+.verticalAlignTop {
+	vertical-align: top !important;
+	display: inline-block !important;
+}
+.horizontalAlignRight {
+	float: right;
+}
+.horizontalAlignLeft {
+	float: left;
+}
+.clear {
+	clear: both;
+}
+/* Layout */
+.contentBox {
+	min-width: 1224px;
+	width: 1225px;
+	padding: 0 50px;
+	margin: 0 auto;
+}
+.content {
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -4em;
+}
+.push {
+	height: 4em;
+}
+.logo {
+	background: url(../Images/logo.png) no-repeat;
+	width: 160px;
+	height: 30px;
+	margin-top: 20px;
+	display: block;
+}
+.top-logo {
+	background: url(../Images/topLogo.png) no-repeat;
+	width: 191px;
+	height: 15px;
+	display: block;
+	background-position: center;
+	line-height: 60px;
+	margin-top: 23px;
+}
+.header {
+	height: 60px;
+	background: #343547;
+}
+.menu {
+	line-height: 60px;
+}
+.footer {
+	height: 100%;
+	background: #343547;
+}
+.footer > .contentBox {
+	padding: 5px 50px;
+}
+.footer > .contentBox > .trialInfo {
+	font-family: 'Helvetica Neue','Segoe UI',Helvetica,Verdana,san-serif !important;
+	float: left;
+	padding-top: 13px;
+}
+.footer > .contentBox > .trialInfo > h2 {
+	color: #da5859;
+	font-weight: 400 !important;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+.footer > .contentBox > .trialInfo > p,
+.footer > .contentBox > .trialInfo > p > a {
+	color: white;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+.revenue-title {
+	color: rgb(118, 118, 118);
+	font-size: 14px;
+}
+.vc-table td {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+.footerHolder {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: 80px;
+}
+.contentHolder {
+	padding-bottom: 80px; /* should equal the height property of the .footerHolder class*/
+}
+/* Progress Bars */
+.dbProgress {
+	width: 100%;
+}
+.pvProgressBar {
+	width: 50px;
+	background-color:#f5f5f5 !important;
+}
+.pvProgressBar .dxe {
+	color: black !important;
+}
+.dbProgress .indicator,
+.pvProgressBar .indicator {
+	background-color: #DB5859;
+}
+
+/* GridView */
+.gridView {
+	outline: none;
+	border-style: none;
+}
+.gridViewFilterRow {
+	border-right-style: none;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.gridViewRow,
+.gridViewRowFocused {
+	height: 34px;
+}
+.gridViewRowFocused {
+	background-color: #DA5859;
+	color: White;
+}
+.gridViewHeader {
+	color: gray;
+	height: 30px;
+	border-style: solid;
+	border-color: #d2d2d2;
+	border-width: 1px 0 !important;
+}
+/* PivotGrid */
+.pivotGridPercentsFieldCell > .pivotGridCellText {
+	margin-top: -20px;
+}
+.pivotGridPercentsFieldCell > div {
+	height: 20px;
+}
+.pivotGridPercentsFieldCell .dataCell {
+	background-color: #F394A4;
+}
+.pivotGridPercentsFieldCell .grandTotalCell {
+	background-color: #86CE80;
+}
+.pivotGridPercentsFieldCell .totalCell {
+	background-color: #94B8F3;
+}
+/* Pager */
+.dxpLite_MetropolisBlue .dxp-current {
+	background-color: #DA5859;
+}
+.dxpLite_MetropolisBlue .dxp-num {
+	padding: 10px 9px;
+}
+.dxpLite_MetropolisBlue .dxp-button {
+	padding-top: 8px !important;
+}
+.dxpLite_MetropolisBlue .dxp-summary {
+	padding-top: 13px !important;
+}
+/* mainMenu */
+div.mainMenu {
+	float: right;
+}
+.mainMenu .dx-vam {
+	font: 16px 'Segoe UI','Helvetica Neue','Droid Sans',Arial,Tahoma,Geneva,Sans-serif;
+	color: #fff;
+}
+.mainMenu .dxm-popup .dx-vam {
+	color: #000;
+}
+.mainMenu .dxm-separator {
+	display: none;
+}
+.mainMenu .dxmLite_Moderno.dxm-ltr .dxm-horizontal .dxm-image-l .dxm-content {
+	padding: 16px 28px 17px 26px;
+}
+.mainMenu .dxm-horizontal .dxm-hovered {
+	background-color: #87464F!important;
+}
+.mainMenu .dxm-selected {
+	background-color: #DA5859!important;
+	border-color: transparent!important;
+}
+.mainMenu .dxm-popup {
+	padding: 0!important;
+	border: 1px solid #cfc7bc!important;
+}
+.mainMenu .dxm-popup .dxm-hovered {
+	background-color: #FEF4E7!important;
+}
+.mainMenu .dxm-popup .dxm-selected .dx-vam {
+	color: #fff!important;
+}
+.mainMenu .dxm-popup .dxm-item {
+	padding: 7px 26px 7px 6px;
+}
+.mainMenu .dxm-popup .dxm-spacing {
+	background-color: #cfc7bc;
+}
+.mainMenu .dxm-popOut .dxm-pImage {
+	height: 11px;
+	width: 12px;
+	background: url(../Images/down.png) !important;
+}
+#mainMenu > ul > .dxm-item,
+#mainMenu > ul > .dxm-item.dxm-hovered {
+	height: 58px !important;
+}
+/* mainMenu end*/
+.menu * {
+	font-size: 16px;
+}
+.menu .item {
+	cursor: pointer;
+	float: left;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.menu .item:hover {
+	background: #87464F;
+}
+.menu .selected {
+	background: #DA5859;
+}
+.menu .selected:hover {
+	background: #DA5859;
+}
+.menu a {
+	color: white;
+	text-decoration: none;
+}
+.menu a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.dropDownMenuButtonText {
+	padding-right: 20px;
+}
+.dropDownMenuButton:hover > .dropDownMenu {
+	display: block;
+	background-color: white;
+}
+.dropDownMenu {
+	display: none;
+	min-width: 250px;
+}
+.dropDownMenuItem {
+	height: 50px;
+	line-height: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: black;
+	text-align: left;
+	border-left: 1px solid #CFC7BC;
+	border-right: 1px solid #CFC7BC;
+	border-bottom: 1px solid #CFC7BC;
+}
+.dropDownMenuItem:hover {
+	background-color: #FEF4E7;
+}
+
+/* Range TrackBar */
+.dxEditors_edtTBDecBtn_MetropolisBlue, .dxEditors_edtTBIncBtn_MetropolisBlue {
+	height: 62px !important;
+	background-color: blue !important;
+	width: 10px !important;
+	z-index: 100 !important;
+	overflow: visible;
+}
+
+/* Range Control */
+.rangeControlLayout {
+	padding-top: 25px;
+}
+.rangeControlLayout > div {
+	display: inline-block;
+}
+.rangeControlLayout .trackBarWrapper > img {
+	height: 50px;
+	width: 1141px;
+}
+.rangeControlLayout .rangeControlButton {
+	width: 24px;
+	height: 24px;
+	border-style: none;
+	background-color: transparent;
+}
+.rangeControlLayout .rangeControlButton.disabled {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.rangeControlLayout .rangeControlButton.leftShift {
+	background-image: url(../Images/salesDateRangeLeftShift.png);
+}
+.rangeControlLayout .rangeControlButton.rightShift {
+	background-image: url(../Images/salesDateRangeRightShift.png);
+}
+.rangeControlLayout .salesDateRange {
+	width: 100%;
+}
+.rangeControlLayout .salesDateRange .item {
+	background-position: center;
+	background-image: url(../Images/salesDateRangeItemLine.gif) !important;
+}
+.rangeControlLayout .salesDateRange .item > span {
+	font-size: 11px;
+	font-family: 'Segoe UI', 'Helvetica Neue', 'Trebuchet MS', Verdana;
+	font-weight: 400;
+	cursor: default;
+	margin-top: 5px !important;
+}
+.rangeControlLayout .salesDateRange
+.rangeControlLayout .rangeControlButton,
+.rangeControlLayout .rangeControlButton div {
+	padding: 0;
+}
+.rangeControlLayout .salesDateRange.focused .dragHandle,
+.rangeControlLayout .salesDateRange .dragHandle {
+	top: -6px;
+	width: 18px;
+	height: 18px;
+	border-radius: 12px;
+	background-image: none;
+	border: 2px solid #fff;
+}
+.rangeControlLayout .salesDateRange .dragHandle,
+.rangeControlLayout .salesDateRange .barHighlight,
+.rangeControlLayout .salesDateRange .dragHandleHover {
+	background-color: #DB5859 !important;
+}
+
+/* Popup helper */
+.helpMenuItem {
+	width: 60px;
+	cursor: pointer !important;
+}
+.helpMenuItem > .dxm-content {
+	border: 1px solid white;
+	border-radius: 16px;
+	width: 32px;
+	height: 32px;
+	padding: 0px !important;
+	box-sizing: border-box;
+	margin: 13px 0px 0px 14px;
+	text-align: center;
+	vertical-align: middle;
+}
+.helpMenuItem > .dxm-content > span {
+	margin-top: 2px;
+}
+
+.popup {
+	padding: 20px;
+	width: 500px;
+}
+.popup .dxpc-headerContent {
+	background: url(../Images/popup-title.png) no-repeat;
+	height: 15px;
+}
+.dxpcModalBackLite_MetropolisBlue {
+	background-color: white;
+}
+.dxpc-shadow {
+	box-shadow: 0 32px 64px rgba(0,0,0,.5) !important;
+	border: 1px solid rgba(0,0,0,.1) !important;
+}
+.popup-buttons {
+	text-align: right;
+}
+.popup-text a {
+	color: #333;
+	font-weight: bold;
+}
+/* Progress */
+.dxeProgressBar_MetropolisBlue td.dxe {
+	color: white;
+	font-size: 14px;
+}
+
+/* Buttons */
+.button {
+	color: white;
+	border-style: none;
+	background-color: #da5859;
+}
+.button > .dxb {
+	padding: 7px 35px !important;
+}
+.button.hover {
+	background-color: #87464F !important;
+}
+
+/* Charts */
+.chart-subtitle {
+	color: rgb(118, 118, 118);
+	font-size: 14px;
+	height: 32px;
+	line-height: 32px;
+	margin-left: 8px;
+}
+.chart-title {
+	margin-left: 8px;
+	height: 40px;
+	font-size: 28px;
+	color: #252525;
+	font-weight: 100;
+}
+.ul_legend {
+	list-style: none;
+	padding-left: 0;
+	display: inline-block;
+}
+.ul_legend li {
+	display: inline-block;
+	padding-right: 0.5em;
+	vertical-align: middle;
+	font-size: 13px;
+}
+.colorDiv {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin-right: 4px;
+}
+.horizontalChartLegend {
+	text-align: left;
+	padding-top: 10px;
+}
+.horizontalChartLegend > div {
+	display: inline-block;
+}
+.horizontalChartLegend > div > div {
+	padding-left: 5px;
+}
+.doughnutChartLegend {
+	text-align: center;
+}
+.chartLegend * {
+	font-size: 13px !important;
+	font-family: 'Segoe UI',Helvetica,Verdana,san-serif !important;
+}
+.doughnutChart {
+	position: relative;
+}
+.doughnutChartTitle {
+	width: 100%; 
+	color: rgb(118, 118, 118); 
+	position: absolute;
+}
+.doughnutChartTitle > div {
+	display: block; 
+	width: 100%; 
+	text-align: center;
+}
+
+/* DateSelectorControl */
+.enabledElement {
+	opacity: 1;
+	filter: alpha(opacity=100);
+	cursor: pointer;
+}
+.disabledElement {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: default;
+}
+.dateSelectorControl {
+	color: #828282;
+	float: left;
+}
+.dateSelectorControl > div {
+	float: left;
+}
+.dateSelectorControl > .enabledElement,
+.dateSelectorControl > .disabledElement {
+	width: 15px;
+	height: 16px;
+	padding-top: 4px;
+}
+.dateSelectorControl > .prevButton {
+	background: url(../Images/dateSelectorPrevButton.png) center no-repeat;
+	margin-right: 10px;
+}
+.dateSelectorControl > .nextButton {
+	background: url(../Images/dateSelectorNextButton.png) center no-repeat;
+	margin-left: 10px;
+}
+
+/* VerticalBarChart */
+.verticalBarChartHeader {
+	border-top: 2px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	width: 100%;
+}
+.verticalBarChartHeader > div {
+	display: inline-block;
+	padding: 5px 25px 5px 0px;
+}
+.verticalBarChartHeader .dateSelectorHolder {
+	padding-right: 10px;
+	padding-top: 15px;
+	float: right;
+}
+.verticalBarChartTitle {
+	font-weight: 400;
+	padding: 5px 0px;
+}
+.verticalBarChartHeaderTitle,
+.verticalBarChartTitle {
+	color: #828282;
+	display: inline-block;
+}
+.verticalChart {
+	padding: 5px 0px;
+}
+
+/* Revenue */
+.revenueBottom {
+	height: 320px;
+	width: 100%;
+}
+.revenueBottom .revenuePieChart {
+	width: 320px;
+	padding-right: 50px;
+}
+.revenueBottom,
+.revenueHorChart,
+.revenuePieChart {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* RevenueByChannel */
+.revenueByChannelContent {
+	width: 100%;
+	min-height: 290px;
+}
+.revenueByChannelContent h1 {
+	margin: 0px;
+}
+.revenueByChannelLegend {
+	padding-right: 24px;
+}
+.revenueByChannelLegend .field {
+	color: gray;
+}
+.revenueByChannelLegend div {
+	display: inline-block;
+}
+.revenueByChannelLegend .color {
+	height: 10px;
+	width: 10px;
+	margin-right: 0px;
+	padding: 0;
+	margin-top: 14px;
+}
+.revenueByChannelLegend .field:not(:last-child) {
+	padding-right: 20px;
+}
+.revenueChannelList {
+	padding-top: 29px;
+	width: 250px;
+	font-size: 14px;
+}
+.revenueChannelList .row {
+	padding: 0;
+	height: 32px;
+}
+.revenueChannelList .row div {
+	text-align: right;
+	color: #252525;
+	display: inline-block;
+	width: 49%;
+}
+.revenueChannelList .row .name {
+	color: gray;
+	text-align: left;
+}
+.revenueChannelList .row.total {
+	padding-top: 13px;
+	border-top: 2px solid #e5e5e5;
+}
+.revenueByChannelContent > .clear {
+	padding-bottom: 20px;
+}
+.revenueByChannelChartTitle {
+	padding-left: 30px;
+}
+
+/* Customer Details */
+#mapHolder {
+	height: 320px !important; 
+	width: 620px !important; 
+	position: relative;
+}
+#CustomerDetailsHolder {
+	height: 100%;
+}
+#CustomerDetailsHolder > div {
+	display: inline-block;
+	vertical-align: top;
+}
+#CustomerDetailsHolder #customerChart {
+	padding-left: 80px;
+}
+#EmptyDataMessageHolder {
+	height: 320px;
+	text-align: center; 
+	line-height: 320px;
+}
+
+/* Products */
+.productDetails {
+	padding-top: 10px;
+	float: left;
+}
+.productDetailsChartsHolder {
+	float: right;
+}
+.productDetails > .description {
+	margin: 0px 0px 45px 0px;
+}
+.descriptionLabel {
+	color: rgb(153, 153, 153);
+	font-size: 14px;
+	display: block;
+}
+.productDetailsChartsHolder > .doughnutChart {
+	padding-right: 15px;
+	height: 300px;
+	align-content: center;
+}
+.productDetailsHolder {
+	width: 100%;
+}
+.productDetailsHolder,
+.productDetailsChartsHolder > .doughnutChart {
+	vertical-align: top;
+	display: inline-block;
+}

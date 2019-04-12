@@ -1,0 +1,26 @@
+﻿<dx:ThemedWindow
+    x:Class="SODemo.Views.Tests.DXRibbonWindow1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    Title="DXRibbonWindow1" Height="350" Width="525"
+    >
+    <DockPanel LastChildFill="True">
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
+            <dxr:RibbonControl.ToolbarItems>
+            </dxr:RibbonControl.ToolbarItems>
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="ribbonPage1">
+                    <dxr:RibbonPageGroup Caption="ribbonPageGroup1">
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom">
+            <dxr:RibbonStatusBarControl.RightItems>
+            </dxr:RibbonStatusBarControl.RightItems>
+        </dxr:RibbonStatusBarControl>            
+    </DockPanel>
+</dx:ThemedWindow>

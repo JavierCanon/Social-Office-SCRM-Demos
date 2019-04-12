@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{980C6752-2637-4831-A4DC-F33452285BB1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SO.DashboardSalesDemo.Wpf</RootNamespace>
+    <AssemblyName>SO.DashboardSalesDemo.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ClickOnce Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ClickOnce Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CLICKONCE</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ClickOnce Release|AnyCPU'">
+    <OutputPath>bin\ClickOnce Release\</OutputPath>
+    <DefineConstants>TRACE;CLICKONCE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugTest\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;DEBUGTEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v18.2.Core">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v18.2">
+      <Private>True</Private>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Charts.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Gauges.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v18.2">
+      <HintPath>
+      </HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ApplicationSettings.cs" />
+    <Compile Include="Controls\DashboardGroup.cs" />
+    <Compile Include="Controls\VolumeLabelControl.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Converters\BillionStringToShortStringConverter.cs" />
+    <Compile Include="Converters\DecimalToRangeValueConverter.cs" />
+    <Compile Include="Converters\PaletteToBrushConverter.cs" />
+    <Compile Include="Converters\ResourceImageConverter.cs" />
+    <Compile Include="Helpers\ImageHyperlinkBehavior.cs" />
+    <Compile Include="Helpers\ResourceImageHelper.cs" />
+    <Compile Include="ViewModel\MainViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel\NavigationItemViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel\NavigationViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel\SplashScreenViewModel.cs" />
+    <Compile Include="ViewModel\PieBarRangeViewModel\BarViewModel.cs" />
+    <Compile Include="ViewModel\PieBarRangeViewModel\PieBarRangeViewModel.cs" />
+    <Compile Include="ViewModel\PieBarRangeViewModel\PieViewModel.cs" />
+    <Compile Include="ViewModel\PieBarRangeViewModel\RangeViewModel.cs" />
+    <Compile Include="ViewModel\ChannelsViewModel.cs" />
+    <Compile Include="ViewModel\Common.cs" />
+    <Compile Include="ViewModel\ProductsViewModel.cs" />
+    <Compile Include="ViewModel\RegionsViewModel.cs" />
+    <Compile Include="ViewModel\SalesPerformanceViewModel\Common.cs" />
+    <Compile Include="ViewModel\SalesPerformanceViewModel\PerformanceAreaChartViewModel.cs" />
+    <Compile Include="ViewModel\SalesPerformanceViewModel\PerformanceBarChartViewModel.cs" />
+    <Compile Include="ViewModel\SalesPerformanceViewModel\PerformanceLineChartViewModel.cs" />
+    <Compile Include="ViewModel\SalesSummaryViewModel\AnnualSalesPerformanceViewModel.cs" />
+    <Compile Include="ViewModel\SalesSummaryViewModel\SalesBySectorViewModel.cs" />
+    <Compile Include="ViewModel\SalesSummaryViewModel\SalesForecastViewModel.cs" />
+    <Compile Include="ViewModel\SalesSummaryViewModel\SalesSummaryViewModel.cs" />
+    <Compile Include="ViewModel\SectorsViewModel.cs" />
+    <Compile Include="View\MainView\Common\LoginButtonView.xaml.cs">
+      <DependentUpon>LoginButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView\Common\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView\Common\NavigationItemView.xaml.cs">
+      <DependentUpon>NavigationItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView\ProgressSplashScreenView.xaml.cs">
+      <DependentUpon>ProgressSplashScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PieBarRangeView\Common\BarView.xaml.cs">
+      <DependentUpon>BarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PieBarRangeView\PieBarRangeView.xaml.cs">
+      <DependentUpon>PieBarRangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesPerformanceView\PerformanceBarChartView.xaml.cs">
+      <DependentUpon>PerformanceBarChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesPerformanceView\Common\PerformanceButtonsView.xaml.cs">
+      <DependentUpon>PerformanceButtonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesPerformanceView\PerformanceAreaChartView.xaml.cs">
+      <DependentUpon>PerformanceAreaChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PieBarRangeView\Common\PieView.xaml.cs">
+      <DependentUpon>PieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PieBarRangeView\Common\RangeView.xaml.cs">
+      <DependentUpon>RangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChannelsView.xaml.cs">
+      <DependentUpon>ChannelsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegionsView.xaml.cs">
+      <DependentUpon>RegionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesDashboard.xaml.cs">
+      <DependentUpon>SalesDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\SalesDashboardViewModel.cs" />
+    <Compile Include="View\SalesPerformanceView\PerformanceLineChartView.xaml.cs">
+      <DependentUpon>PerformanceLineChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesPerformanceView\Common\PerformanceSelectedDateView.xaml.cs">
+      <DependentUpon>PerformanceSelectedDateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesPerformanceView\Common\PerformanceVolumeLabelView.xaml.cs">
+      <DependentUpon>PerformanceVolumeLabelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesSummaryView\Common\AnnualSalesPerformanceView.xaml.cs">
+      <DependentUpon>AnnualSalesPerformanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesSummaryView\Common\SalesBySectorView.xaml.cs">
+      <DependentUpon>SalesBySectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesSummaryView\Common\SalesForecastView.xaml.cs">
+      <DependentUpon>SalesForecastView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesSummaryView\SalesSummaryView.xaml.cs">
+      <DependentUpon>SalesSummaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SectorsView.xaml.cs">
+      <DependentUpon>SectorsView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView\Common\LoginButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView\Common\NavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView\Common\NavigationItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView\ProgressSplashScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PieBarRangeView\Common\BarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PieBarRangeView\PieBarRangeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SalesPerformanceView\PerformanceBarChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesPerformanceView\Common\PerformanceButtonsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesPerformanceView\PerformanceAreaChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PieBarRangeView\Common\PieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PieBarRangeView\Common\RangeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChannelsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesPerformanceView\PerformanceLineChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesPerformanceView\Common\PerformanceSelectedDateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesPerformanceView\Common\PerformanceVolumeLabelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesSummaryView\Common\AnnualSalesPerformanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesSummaryView\Common\SalesBySectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesSummaryView\Common\SalesForecastView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesSummaryView\SalesSummaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SectorsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clickonce.txt" />
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SO.SalesDemo.Model\SO.SalesDemo.Model.csproj">
+      <Project>{a1fa4771-94bd-4481-9d16-491b006f3830}</Project>
+      <Name>SO.SalesDemo.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\logo_Social_Office_SCRM.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Resources\Sales.accdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

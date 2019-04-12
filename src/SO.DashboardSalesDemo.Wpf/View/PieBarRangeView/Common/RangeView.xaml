@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.Common.RangeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
+             xmlns:dxcr="http://schemas.devexpress.com/winfx/2008/xaml/charts/rangecontrolclient"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="188" d:DesignWidth="671" Padding="0,0,1,1"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:RangeViewModel}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/SO.DashboardSalesDemo.Wpf;component/Themes/Common.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button Content="ArrowLeft.png" Background="Transparent" Width="50"
+                Style="{StaticResource GlyphButtonStyle}" Command="{Binding Path=SetPrePeriodCommand}"/>
+
+        <dxe:RangeControl Grid.Column="1" Margin="5,0,5,0"
+                          RangeStart="{Binding Path=RangeStart}" RangeEnd="{Binding Path=RangeEnd}"
+                          VisibleRangeStart="{Binding Path=VisibleRangeStart, Mode=TwoWay}" VisibleRangeEnd="{Binding Path=VisibleRangeEnd, Mode=TwoWay}"
+                          SelectionRangeStart="{Binding Path=SelectedRangeStart, Mode=TwoWay}" SelectionRangeEnd="{Binding Path=SelectedRangeEnd, Mode=TwoWay}"
+                          AllowZoom="False" AllowScroll="False" ShowNavigationButtons="False" ShowRangeBar="False"
+                          BorderBrush="Transparent" Background="Transparent" ShowLabels="False" AllowSnapToInterval="True" ShadingMode="Shading">
+            <dxe:RangeControl.Resources>
+                <Style x:Key="{dxet:RangeControlThemeKey ResourceKey=OutOfRangeAreaBorderStyle, IsThemeIndependent=True}" TargetType="{x:Type Border}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="White" Opacity="0.75" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </dxe:RangeControl.Resources>
+            <dxe:RangeControl.Client>
+                <dxcr:DateTimeChartRangeControlClient ShowGridLines="True" GridAlignment="Day" SnapAlignment="Day" GridSpacing="3"
+                                                      GridLinesBrush="{StaticResource ResourceKey=separatorBrush}"
+                                                      ItemsSource="{Binding AreaSeriesDataSource}"
+                                                      ArgumentDataMember="{Binding AreaSeriesArgumentDataMember}"
+                                                      ValueDataMember="{Binding AreaSeriesValueDataMember}">
+                    <dxcr:DateTimeChartRangeControlClient.View>
+                        <dxcr:RangeControlClientAreaView AreaOpacity="0.4" Brush="{StaticResource ResourceKey=powderBlue}" />
+                    </dxcr:DateTimeChartRangeControlClient.View>
+                </dxcr:DateTimeChartRangeControlClient>
+            </dxe:RangeControl.Client>
+        </dxe:RangeControl>
+
+        <Button Content="ArrowRight.png" Grid.Column="2" Width="50"
+                Command="{Binding Path=SetNextPeriodCommand}" Style="{StaticResource GlyphButtonStyle}" />
+    </Grid>
+</UserControl>

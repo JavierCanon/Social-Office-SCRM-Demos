@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.PerformanceLineChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:View="clr-namespace:SO.DashboardSalesDemo.Wpf.View.Common"
+             xmlns:Controls="clr-namespace:SO.DashboardSalesDemo.Wpf.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="350" d:DesignWidth="817"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:PerformanceLineChartViewModel}"
+             x:Name="this">
+    <UserControl.Resources>
+         <ResourceDictionary Source="/SO.DashboardSalesDemo.Wpf;component/Themes/Common.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="34,15,0,17">
+            <Controls:VolumeLabelControl>
+                <Controls:VolumeLabelItem Header="TOTAL">
+                    <Controls:VolumeLabelItem.Content>
+                        <Binding Path="TotalSalesVolumeForDay">
+                            <Binding.Converter>
+                                <dxmvvm:FormatStringConverter FormatString="$0,,.#M"/>
+                            </Binding.Converter>
+                        </Binding>
+                    </Controls:VolumeLabelItem.Content>
+                </Controls:VolumeLabelItem>
+            </Controls:VolumeLabelControl>
+            <Controls:VolumeLabelControl ItemsSource="{Binding TotalSalesBySector}" Palette="{StaticResource ResourceKey=palette}">
+                <Controls:VolumeLabelControl.ItemContainerStyle>
+                    <Style TargetType="Controls:VolumeLabelItem">
+                        <Setter Property="Header" Value="{Binding GroupName}"/>
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Binding Path="TotalCost">
+                                    <Binding.Converter>
+                                        <dxmvvm:FormatStringConverter FormatString="$0,.##K"/>
+                                    </Binding.Converter>
+                                </Binding>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Controls:VolumeLabelControl.ItemContainerStyle>
+            </Controls:VolumeLabelControl>
+        </StackPanel>
+        <dxc:ChartControl Grid.Row="1" Palette="{StaticResource ResourceKey=palette}" DataSource="{Binding Path=ChartDataSource}"
+                          BorderBrush="Transparent" BorderThickness="0" Padding="0" AnimationMode="OnDataChanged">
+            <dxc:ChartControl.CrosshairOptions>
+                <dxc:CrosshairOptions GroupHeaderPattern="{}{A:d} {A:t}" />
+            </dxc:ChartControl.CrosshairOptions>
+            <dxc:XYDiagram2D Padding="0" SeriesDataMember="GroupName">
+                <dxc:XYDiagram2D.SeriesTemplate>
+                    <dxc:LineSeries2D MarkerVisible="True" MarkerSize="15" ArgumentDataMember="StartOfPeriod" ValueDataMember="TotalCost"
+                                      ArgumentScaleType="DateTime" CrosshairLabelPattern="{}{S}: ${V:0,#}">
+                    </dxc:LineSeries2D>
+                </dxc:XYDiagram2D.SeriesTemplate>
+                <dxc:XYDiagram2D.AxisX>
+                    <dxc:AxisX2D>
+                        <dxc:AxisX2D.DateTimeScaleOptions>
+                            <dxc:ManualDateTimeScaleOptions AutoGrid="False" MeasureUnit="Hour" GridAlignment="Hour"/>
+                        </dxc:AxisX2D.DateTimeScaleOptions>
+                        <dxc:AxisX2D.WholeRange>
+                            <dxc:Range/>
+                        </dxc:AxisX2D.WholeRange>
+                        <dxc:AxisX2D.Label>
+                            <dxc:AxisLabel FontSize="{StaticResource ResourceKey=chartLabelFontSize}" />
+                        </dxc:AxisX2D.Label>
+                        <dxc:AxisX2D.DateTimeOptions>
+                            <dxc:DateTimeOptions Format="Custom" FormatString="t" />
+                        </dxc:AxisX2D.DateTimeOptions>
+                    </dxc:AxisX2D>
+                </dxc:XYDiagram2D.AxisX>
+                <dxc:XYDiagram2D.AxisY>
+                    <dxc:AxisY2D GridLinesMinorVisible="True" Interlaced="False" TickmarksMinorVisible="False" TickmarksVisible="False">
+                        <dxc:AxisY2D.Label>
+                            <dxc:AxisLabel ElementTemplate="{StaticResource axisYLabelTemplate2}" />
+                        </dxc:AxisY2D.Label>
+                    </dxc:AxisY2D>
+                </dxc:XYDiagram2D.AxisY>
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl>
+        <View:PerformanceSelectedDateView DataContext="{Binding}" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,5,0,0"/>
+        <View:PerformanceButtonsView DataContext="{Binding}" Grid.Row="2" Margin="34,11,0,0" LastTimePeriodButtonVisibility="Collapsed" CurrentTimePeriodButtonVisibility="Collapsed"/>
+    </Grid>
+</UserControl>

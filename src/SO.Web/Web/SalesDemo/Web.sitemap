@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="Root">
+    <siteMapNode url="" title="Dashboard">
+      <siteMapNode url="~/RevenueByProduct.aspx" title="Revenue by Product" />
+      <siteMapNode url="~/RevenueBySector.aspx" title="Revenue by Sector" />
+      <siteMapNode url="~/RevenueByChannel.aspx" title="Revenue by Sales Channel" />
+    </siteMapNode>
+    <siteMapNode url="~/Products.aspx" title="Products" />
+    <siteMapNode url="~/Sales.aspx" title="Sales" />
+    <siteMapNode url="~/Customers.aspx" title="Customers" />
+  </siteMapNode>
+</siteMap>

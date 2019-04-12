@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="SO.DashboardSalesDemo.Wpf.View.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+             xmlns:View="clr-namespace:SO.DashboardSalesDemo.Wpf.View.Common"
+             xmlns:MainView="clr-namespace:SO.DashboardSalesDemo.Wpf.View"
+             xmlns:ViewModel="clr-namespace:SO.DashboardSalesDemo.Wpf.ViewModel"
+             xmlns:Helper="clr-namespace:SO.DashboardSalesDemo.Wpf.Helpers"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="700" d:DesignWidth="1200"
+             d:DataContext="{dxmvvm:ViewModelSource ViewModel:MainViewModel}">
+    <dxmvvm:Interaction.Behaviors>
+        <dxwui:WinUIDialogService>
+            <dxwui:WinUIDialogService.ViewTemplate>
+                <DataTemplate>
+                    <MainView:LoginView/>
+                </DataTemplate>
+            </dxwui:WinUIDialogService.ViewTemplate>
+        </dxwui:WinUIDialogService>
+        <dxmvvm:EventToCommand SourceName="LoginButton" EventName="PreviewMouseLeftButtonUp" Command="{Binding ShowLoginViewCommand}"/>
+    </dxmvvm:Interaction.Behaviors>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="320"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <View:LoginButtonView x:Name="LoginButton" DataContext="{Binding LoginViewModel}" Grid.Row="0" Margin="19,22,0,24"/>
+        <Image x:Name="logo" HorizontalAlignment="Left" Grid.Row="2" Margin="0,0,0,7" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" Cursor="Hand"
+               Source="/Resources/logo_Social_Office_SCRM.png">
+            <dxmvvm:Interaction.Behaviors>
+                <Helper:ImageHyperlinkBehavior NavigatetUri="https://scrm.software"/>
+            </dxmvvm:Interaction.Behaviors>
+        </Image>
+
+        <View:NavigationView Grid.Row="1" Margin="20,0,0,0" DataContext="{Binding NavigationViewModel}"/>
+
+        <dx:LoadingDecorator Grid.RowSpan="3" Grid.Column="1">
+            <dxlc:LayoutControl ScrollBars="Auto">
+                <dx:DXTabControl dxmvvm:UIRegion.Region="{x:Static ViewModel:Regions.Main}" Margin="30" MinWidth="820" MinHeight="660" TabContentCacheMode="CacheAllTabs" Padding="0">
+                    <dx:DXTabControl.BackgroundTemplate>
+                        <DataTemplate>
+                            <Border/>
+                        </DataTemplate>
+                    </dx:DXTabControl.BackgroundTemplate>
+                    <dx:DXTabControl.View>
+                        <dx:TabControlScrollView HeaderLocation="None"/>
+                    </dx:DXTabControl.View>
+                </dx:DXTabControl>
+            </dxlc:LayoutControl>
+        </dx:LoadingDecorator>
+    </Grid>
+</UserControl>

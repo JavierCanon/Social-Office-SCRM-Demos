@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ErrorMasterPage.Master.cs" Inherits="Errors.ErrorMasterPage"  %>
+
+<%@ Register Src="~/Errors/ErrorWUCHead.ascx" TagPrefix="uc1" TagName="ErrorWUCHead" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Error <%: SO.Global.AppComercialName %></title>
+    <uc1:ErrorWUCHead runat="server" id="ErrorWUCHead" />
+    <asp:ContentPlaceHolder ID="ContentHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="container" style="margin-top:10px;">
+
+            <div class="panel panel-danger">
+
+                <div class="panel-heading">
+                    <h1 class="panel-title">Softcanon <%= SO.Global.AppComercialName %></h1>
+                </div>
+
+                <div class="panel-body">
+
+                    <asp:ContentPlaceHolder ID="ContentMain" runat="server">
+                    </asp:ContentPlaceHolder>
+
+
+                </div>
+                <div class="panel-footer">Por favor contacte a servicio al cliente si el error es persistente.</div>
+            </div>
+
+        </div>
+
+    </form>
+
+    <script src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../Scripts/bootstrap-4.2.1/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Web/SiteMain.Master" AutoEventWireup="true" CodeBehind="FacebookMasterPage.master.cs"
+    Inherits="SO.Web.Marketing.Social.Facebook.FacebookMasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentHead" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PageHead"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentHeader" runat="server">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="facebook d-inline"><i class="fab fa-facebook"></i> Facebook</h2>
+            <a class="nav-link facebook d-inline"
+                id="navbarDropdownMenuLinkAppsFacebook" data-toggle="modal" data-target="#navbarDropdownMenuLinkAppsModalFacebook" aria-expanded="false">
+                <i class="fa fa-bars top-nav-icon"></i>
+            </a>
+            <asp:ContentPlaceHolder runat="server" ID="PageTitle"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentMain" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PageMain"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentFooter" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PageFooter"></asp:ContentPlaceHolder>
+
+    <%--  Modals --%>
+    <div class="modal fade" id="navbarDropdownMenuLinkAppsModalFacebook" tabindex="-1" role="dialog" aria-labelledby="navbarDropdownMenuLinkApps"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Menu Facebook</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h6 class="facebook"><i class="fa fa-address-book"></i> Cuentas y Contáctos</h6>
+                                <div class="btn-group-vertical">
+                                    <%-- 
+                                    <a role="button" class="btn btn-sm btn-outline-success text-left" onclick="window.external.OpenFacebookExplorer('called from script code')" >&raquo; Explorar</a>
+                                    --%>
+                                    <a role="button" class="btn btn-sm btn-outline-primary facebook text-left" href="FacebookAccounts.aspx">&raquo; Cuentas de FB</a>
+
+                                    <a role="button" class="btn btn-sm btn-outline-primary facebook text-left" onclick="window.external.OpenNewBrowserTab('Scanner','<%: SO.Global.Utils.Webpath.GetRequestApplicationUrlPath() %>Web/Marketing/Social/Facebook/Scanner.aspx',true,true)">&raquo; Scanner Usuarios</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-warning"><i class="fa fa-bullhorn"></i> Marketing</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-warning text-left disabled" href="#" target="_blank">&raquo;
+                                        Publicidad</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-danger"><i class="fa fa-chart-line"></i> Analítica</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-danger text-left disabled">&raquo; Dashboards</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm">
+                                <h6><i class="fa fa-headset"></i> Servicio</h6>
+
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-dark text-left disabled" href="https://www.facebook.com/messages" target="_blank">&raquo;
+                                        Chat FB Usuario</a>
+                                    <a role="button" class="btn btn-sm btn-outline-dark text-left disabled" href="https://www.facebook.com/bookmarks/pages" target="_blank">&raquo;
+                                        Paginas FB</a>
+                                    <a role="button" class="btn btn-sm btn-outline-dark text-left disabled">&raquo; Tareas</a>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+                                <h6 class="text-info"><i class="fa fa-users"></i> Colaboración</h6>
+                                <div class="btn-group-vertical">
+                                    <a role="button" class="btn btn-sm btn-outline-info text-left disabled">&raquo; Documentos y Archivos</a>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm">
+                                <h6 class="text-secondary"><i class="fa fa-toolbox"></i> Herramientas</h6>
+                                <div class="btn-group-vertical"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="ContentFooterScripts" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PageBottom"></asp:ContentPlaceHolder>
+</asp:Content>

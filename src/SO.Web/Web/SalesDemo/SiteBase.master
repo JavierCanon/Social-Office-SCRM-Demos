@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteBase.master.cs" Inherits="SiteMasterBase" ViewStateMode="Disabled" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="PageTitlePartPlaceHolder" runat="server"></asp:ContentPlaceHolder><%=" - SalesViewer Demo | ASP.NET Controls by DevExpress"%>
+    </title>
+    <meta name="format-detection" content="telephone=no"/>
+    <link href="Content/Css/Demo.css" rel="stylesheet" />
+    <script src="Content/Scripts/Helper.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <dx:ASPxGlobalEvents ID="GlobalEvents" runat="server">
+            <ClientSideEvents ControlsInitialized="OnControlsInitialized" />
+        </dx:ASPxGlobalEvents>
+        <dx:ASPxPopupControl ID="HelpMenuPopup" ClientInstanceName="HelpMenuPopup" ShowCloseButton="false" HeaderText=""
+            CloseAnimationType="Fade" PopupAnimationType="Fade" runat="server" ShowShadow="true" ShowFooter="true"
+            CssClass="popup" Modal="true" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter">
+            <ContentCollection>
+                <dx:PopupControlContentControl>
+                    <div class="popup-text">
+                        <p>
+                            Construct flexible and fully customizable web apps for real-time data consumption and analysis.
+                        </p>
+                        <p>Controls showcased on this page:</p>
+                        <asp:ContentPlaceHolder ID="HelpMenuDescriptionPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                        <p><a target="_blank" href="https://documentation.devexpress.com/#AspNet/clsDevExpressWebASPxPopupControlASPxPopupControltopic">Popup Control</a> - used to display this modal window.</p>
+                    </div>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+            <FooterTemplate>
+                <div class="popup-buttons">
+                    <dx:ASPxButton ID="DownloadButton" AutoPostBack="false" CssClass="button" OnCustomJSProperties="DownloadButton_CustomJSProperties" runat="server" Text="Download Free Trial">
+                        <ClientSideEvents Click="RedirectToTrialPage" />
+                        <HoverStyle CssClass="hover"></HoverStyle>
+                    </dx:ASPxButton>
+                    <dx:ASPxButton ID="OkButton" AutoPostBack="false" runat="server" Text="OK" CssClass="button">
+                        <ClientSideEvents Click="HidePopup" />
+                        <HoverStyle CssClass="hover"></HoverStyle>
+                    </dx:ASPxButton>
+                </div>
+            </FooterTemplate>
+        </dx:ASPxPopupControl>
+        <div class="contentHolder">
+            <div class="header">
+                <div class="contentBox">
+                    <uc:Header runat="server" ID="Header" />
+                </div>
+            </div>
+            <div class="content" style="background-color: white;">
+                <div class="contentBox">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentBox">
+                    <asp:ContentPlaceHolder ID="BottomContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <asp:ContentPlaceHolder ID="FooterRangeControlPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="footerHolder">
+            <footer class="footer">
+                <div class="contentBox">
+                    <uc:Footer runat="server" ID="Footer" />
+                </div>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
